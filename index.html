@@ -22,13 +22,11 @@ body {
     overflow-x: hidden;
 }
 
-/* container */
 .container {
     width: 90%;
     max-width: 500px;
 }
 
-/* card */
 .card {
     background: rgba(255,255,255,0.25);
     backdrop-filter: blur(20px);
@@ -39,14 +37,12 @@ body {
     box-shadow: 0 8px 40px rgba(0,0,0,0.08);
 }
 
-/* judul */
 h1 {
     font-size: 24px;
     margin-bottom: 15px;
     color: #333;
 }
 
-/* teks */
 p {
     font-size: 14px;
     line-height: 1.8;
@@ -54,7 +50,6 @@ p {
     white-space: pre-line;
 }
 
-/* gallery */
 .gallery {
     display: flex;
     gap: 12px;
@@ -77,7 +72,6 @@ p {
     transform: scale(1.08);
 }
 
-/* tombol */
 .buttons {
     position: relative;
 }
@@ -89,7 +83,6 @@ button {
     border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
-    transition: 0.3s;
 }
 
 .yes {
@@ -121,7 +114,6 @@ button {
 
 <div class="container">
 
-    <!-- TEKS -->
     <div class="card">
         <h1>Untuk Nanaad</h1>
         <p>
@@ -147,7 +139,6 @@ jadiii ayooo kitaaa selesain semua masalah ini yaaaa
         </p>
     </div>
 
-    <!-- FOTO -->
     <div class="card">
         <div class="gallery">
             <img src="foto.jpg">
@@ -164,7 +155,6 @@ jadiii ayooo kitaaa selesain semua masalah ini yaaaa
         </div>
     </div>
 
-    <!-- TOMBOL -->
     <div class="card buttons" id="buttonArea">
         <button class="yes" onclick="step1()">iya aku maafin</button>
         <button class="no" onmouseover="moveButton(this)">gamau</button>
@@ -210,12 +200,31 @@ function step3() {
     `;
 }
 
-/* FINAL */
+/* FINAL + WHATSAPP */
 function final() {
+
+    let nomor = "6281262979679";
+    let pesan = encodeURIComponent("aku udah maafin opal yaa sayang ❤️");
+
+    let link = "https://wa.me/" + nomor + "?text=" + pesan;
+
     document.body.innerHTML = `
         <div style="text-align:center; margin-top:100px;">
             <h1>❤️</h1>
             <p>makasih ya sayang, kita mulai lagi dari awal ya</p>
+            <br>
+            <a href="${link}" target="_blank">
+                <button style="
+                    padding:12px 20px;
+                    border:none;
+                    border-radius:20px;
+                    background:#25D366;
+                    color:white;
+                    cursor:pointer;
+                ">
+                kirim ke opal di WA
+                </button>
+            </a>
         </div>
     `;
 }
