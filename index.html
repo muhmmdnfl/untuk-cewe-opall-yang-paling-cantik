@@ -106,7 +106,7 @@ button:hover {
     position: absolute;
 }
 
-/* animasi bokeh */
+/* animasi bubble */
 .bubble {
     position: absolute;
     border-radius: 50%;
@@ -168,13 +168,9 @@ jadiii ayooo kitaaa selesain semua masalah ini yaaaa
         </div>
     </div>
 
-    <!-- TOMBOL -->
-    <div class="card buttons">
-        <button class="yes1" onclick="yes()">iya aku maafin</button>
-        <button class="yes2" onclick="yes()">yaudah dimaafin</button>
-        <button class="yes3" onclick="yes()">maaf diterima</button>
-        <button class="yes4" onclick="yes()">balikan yuk</button>
-
+    <!-- TOMBOL INTERAKTIF -->
+    <div class="card buttons" id="buttonArea">
+        <button class="yes1" onclick="step1()">iya aku maafin</button>
         <button class="no" onmouseover="moveButton(this)">gamau</button>
     </div>
 
@@ -188,16 +184,49 @@ function moveButton(btn) {
     btn.style.top = y + "px";
 }
 
-function yes() {
+/* STEP 1 */
+function step1() {
+    document.getElementById("buttonArea").innerHTML = `
+        <p style="margin-bottom:15px;">
+        makasii yaa sayang opal ga akan sia siain kesempatan yang nanad kasih
+        </p>
+        <button class="yes2" onclick="step2()">peluk opal</button>
+        <button class="yes3" onclick="step2()">masih sayang kok</button>
+    `;
+}
+
+/* STEP 2 */
+function step2() {
+    document.getElementById("buttonArea").innerHTML = `
+        <p style="margin-bottom:15px;">
+        opal seneng banget... makasih udah tetap bertahan sama opal
+        </p>
+        <button class="yes3" onclick="step3()">jangan ulangin lagi ya</button>
+        <button class="yes4" onclick="step3()">aku percaya lagi</button>
+    `;
+}
+
+/* STEP 3 */
+function step3() {
+    document.getElementById("buttonArea").innerHTML = `
+        <p style="margin-bottom:15px;">
+        opal janji bakal jadi lebih baik dan jagain kamu lebih dari sebelumnya
+        </p>
+        <button class="yes1" onclick="final()">yaudah sini</button>
+    `;
+}
+
+/* FINAL */
+function final() {
     document.body.innerHTML = `
         <div style="text-align:center; margin-top:100px;">
-            <h1>Makasih ya sayang</h1>
-            <p>opal janji bakal jadi lebih baik dan jagain kamu</p>
+            <h1>❤️</h1>
+            <p>makasih ya sayang, kita mulai lagi dari awal ya</p>
         </div>
     `;
 }
 
-/* animasi bubble aesthetic */
+/* animasi bubble */
 setInterval(() => {
     let bubble = document.createElement("div");
     bubble.classList.add("bubble");
