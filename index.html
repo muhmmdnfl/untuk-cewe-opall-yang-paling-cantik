@@ -14,57 +14,67 @@
 }
 
 body {
-    background: linear-gradient(135deg, #f8e1e7, #e3d7ff);
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f3d1f4, #d6e4ff);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     overflow-x: hidden;
 }
 
+/* container */
 .container {
     width: 90%;
     max-width: 500px;
 }
 
+/* card */
 .card {
-    background: rgba(255,255,255,0.3);
-    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(20px);
     border-radius: 25px;
     padding: 25px;
     margin-bottom: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
 }
 
+/* judul */
 h1 {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 15px;
+    color: #333;
 }
 
+/* teks */
 p {
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 1.8;
+    color: #444;
     white-space: pre-line;
 }
 
 /* gallery */
 .gallery {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     overflow-x: auto;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
 }
 
 .gallery img {
-    width: 140px;
-    height: 190px;
+    width: 150px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 15px;
-    transition: 0.3s;
+    border-radius: 18px;
+    scroll-snap-align: center;
+    transition: 0.4s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* tombol */
@@ -73,34 +83,35 @@ p {
 }
 
 button {
-    padding: 10px 15px;
-    margin: 5px;
+    padding: 10px 16px;
+    margin: 6px;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 13px;
 }
 
-/* tombol lucu */
 .yes1 { background: #6c63ff; color: white; }
 .yes2 { background: #ff7aa2; color: white; }
 .yes3 { background: #ffa94d; color: white; }
 .yes4 { background: #00b894; color: white; }
+
+button:hover {
+    transform: scale(1.05);
+}
 
 .no {
     background: #ddd;
     position: absolute;
 }
 
-/* efek light */
-.light {
+/* animasi bokeh */
+.bubble {
     position: absolute;
-    width: 6px;
-    height: 6px;
-    background: white;
-    opacity: 0.5;
     border-radius: 50%;
-    animation: float 8s linear infinite;
+    opacity: 0.3;
+    animation: float 12s linear infinite;
 }
 
 @keyframes float {
@@ -119,6 +130,7 @@ button {
         <h1>Untuk Nanaad</h1>
         <p>
 sayang maafin opaal yaaa?
+
 opaal dalaam semingguu nii merasa bersalah banget,
 opal pengen kitaa baikaan lagiii sayang,
 maafin opaal yaa?
@@ -140,22 +152,23 @@ jadiii ayooo kitaaa selesain semua masalah ini yaaaa
     </div>
 
     <!-- FOTO -->
-  <div class="gallery">
-    <img src="foto.jpg">
-    <img src="foto1.jpg">
-    <img src="foto2.jpg">
-    <img src="foto3.jpg">
-    <img src="foto4.jpg">
-    <img src="foto5.jpeg">
-    <img src="foto6.jpeg">
-    <img src="foto7.jpeg">
-    <img src="foto8.jpeg">
-    <img src="foto9.jpeg">
-    <img src="foto10.jpeg">
-</div>
+    <div class="card">
+        <div class="gallery">
+            <img src="foto.jpg">
+            <img src="foto1.jpg">
+            <img src="foto2.jpg">
+            <img src="foto3.jpg">
+            <img src="foto4.jpg">
+            <img src="foto5.jpeg">
+            <img src="foto6.jpeg">
+            <img src="foto7.jpeg">
+            <img src="foto8.jpeg">
+            <img src="foto9.jpeg">
+            <img src="foto10.jpeg">
+        </div>
     </div>
 
-    <!-- TOMBOL BANYAK -->
+    <!-- TOMBOL -->
     <div class="card buttons">
         <button class="yes1" onclick="yes()">iya aku maafin</button>
         <button class="yes2" onclick="yes()">yaudah dimaafin</button>
@@ -184,17 +197,23 @@ function yes() {
     `;
 }
 
-/* efek aesthetic */
+/* animasi bubble aesthetic */
 setInterval(() => {
-    let light = document.createElement("div");
-    light.classList.add("light");
-    light.style.left = Math.random() * window.innerWidth + "px";
-    document.body.appendChild(light);
+    let bubble = document.createElement("div");
+    bubble.classList.add("bubble");
+    let size = Math.random() * 20 + 10;
+
+    bubble.style.width = size + "px";
+    bubble.style.height = size + "px";
+    bubble.style.left = Math.random() * window.innerWidth + "px";
+    bubble.style.background = "white";
+
+    document.body.appendChild(bubble);
 
     setTimeout(() => {
-        light.remove();
-    }, 8000);
-}, 400);
+        bubble.remove();
+    }, 12000);
+}, 300);
 </script>
 
 </body>
