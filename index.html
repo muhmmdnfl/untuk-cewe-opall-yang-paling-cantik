@@ -83,22 +83,18 @@ p {
 }
 
 button {
-    padding: 10px 16px;
-    margin: 6px;
+    padding: 12px 20px;
+    margin: 8px;
     border: none;
-    border-radius: 14px;
+    border-radius: 20px;
     cursor: pointer;
+    font-size: 14px;
     transition: 0.3s;
-    font-size: 13px;
 }
 
-.yes1 { background: #6c63ff; color: white; }
-.yes2 { background: #ff7aa2; color: white; }
-.yes3 { background: #ffa94d; color: white; }
-.yes4 { background: #00b894; color: white; }
-
-button:hover {
-    transform: scale(1.05);
+.yes {
+    background: #6c63ff;
+    color: white;
 }
 
 .no {
@@ -168,9 +164,9 @@ jadiii ayooo kitaaa selesain semua masalah ini yaaaa
         </div>
     </div>
 
-    <!-- TOMBOL INTERAKTIF -->
+    <!-- TOMBOL -->
     <div class="card buttons" id="buttonArea">
-        <button class="yes1" onclick="step1()">iya aku maafin</button>
+        <button class="yes" onclick="step1()">iya aku maafin</button>
         <button class="no" onmouseover="moveButton(this)">gamau</button>
     </div>
 
@@ -190,8 +186,7 @@ function step1() {
         <p style="margin-bottom:15px;">
         makasii yaa sayang opal ga akan sia siain kesempatan yang nanad kasih
         </p>
-        <button class="yes2" onclick="step2()">peluk opal</button>
-        <button class="yes3" onclick="step2()">masih sayang kok</button>
+        <button class="yes" onclick="step2()">lanjut</button>
     `;
 }
 
@@ -201,8 +196,7 @@ function step2() {
         <p style="margin-bottom:15px;">
         opal seneng banget... makasih udah tetap bertahan sama opal
         </p>
-        <button class="yes3" onclick="step3()">jangan ulangin lagi ya</button>
-        <button class="yes4" onclick="step3()">aku percaya lagi</button>
+        <button class="yes" onclick="step3()">aku dengerin</button>
     `;
 }
 
@@ -212,7 +206,7 @@ function step3() {
         <p style="margin-bottom:15px;">
         opal janji bakal jadi lebih baik dan jagain kamu lebih dari sebelumnya
         </p>
-        <button class="yes1" onclick="final()">yaudah sini</button>
+        <button class="yes" onclick="final()">iya</button>
     `;
 }
 
