@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #f8e1e7, #e3d7ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* card */
+.card {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* tombol */
+button {
+    padding: 12px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes {
+    background: #6c63ff;
+    color: white;
+}
+
+.yes:hover {
+    background: #574fd6;
+}
+
+.no {
+    background: #ddd;
+    position: absolute;
+}
+
+/* animasi masuk */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* floating light */
+.light {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    opacity: 0.5;
+    border-radius: 50%;
+    animation: float 8s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(-10vh);
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+    <h1>Untuk Kamu</h1>
+    <p>
+        Aku tahu aku salah.  
+        Dan aku sadar, mungkin kata “maaf” saja tidak cukup.  
+        Tapi aku tetap ingin memperbaiki semuanya, pelan-pelan.  
+        Karena kamu tetap penting buat aku.
+    </p>
+
+    <button class="yes" onclick="nextPage()">Aku maafin</button>
+    <button class="no" onmouseover="moveButton(this)">Tidak</button>
+</div>
+
+<script>
+function moveButton(btn) {
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 50);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+}
+
+function nextPage() {
+    document.body.innerHTML = `
+        <div style="text-align:center;">
+            <h1>Terima kasih</h1>
+            <p>Aku janji akan jadi lebih baik.</p>
+        </div>
+    `;
+}
+
+// efek floating
+setInterval(() => {
+    let light = document.createElement("div");
+    light.classList.add("light");
+    light.style.left = Math.random() * window.innerWidth + "px";
+    light.style.width = light.style.height = Math.random() * 8 + 5 + "px";
+
+    document.body.appendChild(light);
+
+    setTimeout(() => {
+        light.remove();
+    }, 8000);
+}, 400);
+</script>
+
+</body>
+</html>
